@@ -6,6 +6,7 @@
 
 ## 引擎配置
 `请安装好onnxruntime-gpu`推理环境
+模型地址：https://modelscope.cn/models/QuadraV/Seaco_Paraformer_ONNX_GPU
 
 ```python
 SR = 16000
