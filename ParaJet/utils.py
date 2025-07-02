@@ -1,10 +1,10 @@
-from ParaJet.lib import *
+from parajet.lib import *
 
 
 def read_audio_file(audio_file):
     """读取音频文件数据并转换为PCM格式。"""
     ffmpeg_cmd = [
-        'ffmpeg',
+        FFMPEG,
         '-i', audio_file,
         '-f', 's16le',
         '-acodec', 'pcm_s16le',
@@ -19,7 +19,7 @@ def read_audio_file(audio_file):
 
 def read_audio_bytes(audio_bytes):
     ffmpeg_cmd = [
-    'ffmpeg',
+    FFMPEG,
     '-i', 'pipe:',  
     '-f', 's16le',
     '-acodec', 'pcm_s16le',

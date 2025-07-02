@@ -1,7 +1,7 @@
 from .front_end import *
 from .utils import *
 from .ort_session import OrtInferSession
-from ParaJet.utils import *
+from parajet.utils import *
 
 class SeacoParaformer:
     def __init__(self,
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 
     B, T = 20, 16000 * 30  # 定义GPU模型的吞吐能力
     model = SeacoParaformer(
-        model_dir="models/asr/parajet",
+        model_dir="models/parajet",
         intra_op_num_threads=1,
         inter_op_num_threads=1,
         use_gpu=True,

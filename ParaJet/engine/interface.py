@@ -1,4 +1,4 @@
-from ParaJet.utils import *
+from parajet.utils import *
 
 class Consumer:
     
@@ -32,7 +32,7 @@ class Consumer:
 
     @staticmethod
     def _init_session(config):
-        from ParaJet.core.interface import SeacoParaformer
+        from parajet.core.interface import SeacoParaformer
         session = SeacoParaformer(
             model_dir=config['instance']['model_dir'],
             intra_op_num_threads=config['instance']['intra_op_num_threads'],
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     consumer = Consumer(config)
     consumer.start()
 
-    pcm_data = audio_i2f(read_audio_file('ParaJet/examples/test.wav'))
+    pcm_data = audio_i2f(read_audio_file('parajet/examples/test.wav'))
     pcm_data = reshape_audio_to_BxT(pcm_data, consumer.T)
     n = pcm_data.shape[0]
 

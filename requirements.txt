@@ -1,0 +1,8 @@
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+pyyaml
+scipy
+soundfile
+kaldi_native_fbank
+fastapi
+uvicorn
+requests

@@ -24,7 +24,6 @@ from pathlib import Path
 # machine learn
 import numpy as np
 import onnxruntime
-import sklearn
 import scipy
 import torchaudio.transforms as T
 import torch
@@ -39,5 +38,5 @@ import kaldi_native_fbank as knf
 # web
 import ssl 
 import asyncio
-# import fastapi
+import fastapi
 import requests

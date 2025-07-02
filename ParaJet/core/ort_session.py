@@ -1,4 +1,4 @@
-from ParaJet.lib import *
+from parajet.lib import *
 import onnxruntime as ort
 
 class OrtInferSession:

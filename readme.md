@@ -1,12 +1,26 @@
 # Paraformer ONNX GPU 推理引擎
 
-### 特性
+
+## 特性
+模型地址：https://modelscope.cn/models/QuadraV/Seaco_Paraformer_ONNX_GPU
 - 面向gpu友好型计算，优化和拆分 onnx graph，大幅提升推理速度（约2000倍）
 - 采用fastapi 异步并发设计，支持多路并发转写
 
+
+## 安装
+```shell
+# 配置onnxruntime-gpu
+conda create -n parajet python=3.8
+conda activate parajet
+conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+conda install cudnn==8.2.1
+pip install onnxruntime-gpu==1.14.1
+# 其他依赖
+pip install -r requirements.txt
+```
+
 ## 引擎配置
-`请安装好onnxruntime-gpu`推理环境
-模型地址：https://modelscope.cn/models/QuadraV/Seaco_Paraformer_ONNX_GPU
+
 
 ```python
 SR = 16000

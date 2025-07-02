@@ -1,4 +1,4 @@
-from ParaJet.utils import *
+from parajet.utils import *
 
 def cif(hidden, alphas, threshold=1.0,max_len=100):
     B, F, C = hidden.shape

@@ -1,4 +1,4 @@
-from ParaJet.lib import *
+from parajet.lib import *
 
 
 def extract_fbank_batch_torch(waveforms, sample_rate=16000, num_mel_bins=80):

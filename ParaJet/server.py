@@ -3,8 +3,8 @@ from fastapi import WebSocket, WebSocketDisconnect
 from fastapi.responses import StreamingResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-from ParaJet import Consumer, recognize
-from ParaJet.utils import *
+from parajet import Consumer, recognize
+from parajet.utils import *
 
 
 
