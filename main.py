@@ -4,7 +4,7 @@ consumer = Consumer(config)
 consumer.start()
 
 k = 100
-pcm_data = audio_i2f(read_audio_file(r'parajet/examples/test.wav')) # 80s
+pcm_data = audio_i2f(read_audio_file('parajet/examples/test.wav')) # 80s
 pcm_data = np.concatenate([pcm_data for _ in range(k)]) # 8000s
 pcm_seconds = len(pcm_data)/16000
 

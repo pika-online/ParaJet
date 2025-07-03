@@ -1,5 +1,5 @@
 from parajet.lib import *
-
+from concurrent.futures import ThreadPoolExecutor
 
 def extract_fbank_batch_torch(waveforms, sample_rate=16000, num_mel_bins=80):
     mel_transform = T.MelSpectrogram(
@@ -40,13 +40,21 @@ def extract_fbank_kaldi(audio_data, sample_rate=16000, num_mel_bins=80):
     features = np.stack(feats, axis=0)
     return features
 
-
 def extract_fbank_batch_kaldi(waveforms, sample_rate=16000, num_mel_bins=80):
     feats = []
     for waveform in waveforms:
         feat = extract_fbank_kaldi(waveform, sample_rate=sample_rate, num_mel_bins=num_mel_bins)
         feats.append(feat)
     return np.array(feats)
+
+def extract_fbank_batch_kaldi2(waveforms, sample_rate=16000, num_mel_bins=80):
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        futures = [
+            executor.submit(extract_fbank_kaldi, audio, sample_rate, num_mel_bins)
+            for audio in waveforms
+        ]
+        results = [future.result() for future in futures]
+    return np.array(results)
 
 
 

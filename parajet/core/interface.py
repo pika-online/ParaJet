@@ -55,8 +55,10 @@ class SeacoParaformer:
 
     def extract_feat(self, waveform_list: List[np.ndarray]) -> Tuple[List[np.ndarray], List[int]]:
         # 提取 FBank 特征，应用 LFR 和 CMVN
-        waveform_tensor = torch.tensor(np.array(waveform_list, dtype='float32'))
-        feats = extract_fbank_batch_torch(waveform_tensor).numpy()
+        # waveform_tensor = torch.tensor(np.array(waveform_list, dtype='float32'))
+        # feats = extract_fbank_batch_torch(waveform_tensor).numpy()
+
+        feats = extract_fbank_batch_kaldi2(waveform_list)
         
         feats_processed, feats_len = [], []
         for feat in feats:
@@ -170,7 +172,7 @@ if __name__ == "__main__":
         fixed_shape=[B, T]
     )
 
-    pcm_data = audio_i2f(read_audio_file('ParaJet/examples/test.wav'))
+    pcm_data = audio_i2f(read_audio_file('parajet/examples/test.wav'))
     pcm_data = reshape_audio_to_BxT(pcm_data, T)
 
     # 构造固定输入
