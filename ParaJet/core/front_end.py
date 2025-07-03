@@ -23,9 +23,9 @@ def extract_fbank_kaldi(audio_data, sample_rate=16000, num_mel_bins=80):
     opts.frame_opts.samp_freq = sample_rate
     opts.frame_opts.dither = 0
     opts.frame_opts.window_type = "hamming"
-    opts.frame_opts.frame_shift_ms = float(25)
-    opts.frame_opts.frame_length_ms = float(10)
-    opts.mel_opts.num_bins = 80
+    opts.frame_opts.frame_shift_ms = float(10)
+    opts.frame_opts.frame_length_ms = float(25)
+    opts.mel_opts.num_bins = num_mel_bins
     opts.energy_floor = 0
     opts.frame_opts.snip_edges = True
     opts.mel_opts.debug_mel = False
@@ -39,6 +39,7 @@ def extract_fbank_kaldi(audio_data, sample_rate=16000, num_mel_bins=80):
 
     features = np.stack(feats, axis=0)
     return features
+
 
 def extract_fbank_batch_kaldi(waveforms, sample_rate=16000, num_mel_bins=80):
     feats = []
